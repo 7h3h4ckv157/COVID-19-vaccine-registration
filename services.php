@@ -1,20 +1,20 @@
 <?php
-// database connection code
+
 if(isset($_POST['txtName']))
 {
-// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
-$con = mysqli_connect('localhost', 'root', '','db_service');
 
-// get the post records
-
+$con = mysqli_connect('localhost', 'root', '','db');
+	
 $txtName = $_POST['txtName'];
 $txtAdh = $_POST['txtAdh'];
+	
+$sanitized_txtName = mysqli_real_escape_string($db, txtName);
+$sanitized_txtAdh =  mysqli_real_escape_string($db, txtAdh);
 
-// database insert SQL code
-$sql = "INSERT INTO `tbl_service` (`Id`, `fldName`, `fldAdh`) VALUES ('0', '$txtName', '$txtAdh')";
+$sql = "INSERT INTO `tbl_service` (`Id`, `fldName`, `fldAdh`) VALUES ('0', '$sanitized_txtName', '$sanitized_txtAdh')";
 
-// insert in database 
 $rs = mysqli_query($con, $sql);
+	
 if($rs)
 {
 	echo "Registered Succefully";
@@ -26,3 +26,4 @@ else
 	
 }
 ?>
+c
