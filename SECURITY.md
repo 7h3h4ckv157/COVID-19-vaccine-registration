@@ -1,7 +1,5 @@
 # Reporting a Vulnerability
 
-mail to: kiranxrx8@gmail.com
-
 
 # Reporting a Vulnerability
 
